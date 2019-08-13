@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<locales>
+    <locale name="sanskrit" scriptname="devanagari"/>
+
+
+    <days>
+        <day index="1">
+            <sanskrit romanized="Ravivāsara" script="रविवासर" />
+        </day>
+        <day index="2">
+            <sanskrit romanized="Somavāsara" script="सोमवासर"/>
+        </day>
+        <day index="3">
+            <sanskrit romanized="Maṅgalavāsara" script="मंगलवासर" />
+        </day>
+        <day index="4">
+            <sanskrit romanized="Budhavāsara" script="बुधवासर" />
+        </day>
+        <day index="5">
+            <sanskrit romanized="Guruvāsara" script="गुरुवासर" />
+        </day>
+        <day index="6">
+             <sanskrit romanized="Śukravāsara" script="शुक्रवासर" />
+        </day>
+
+        <day index="7">
+            <sanskrit romanized="Śanivāsara" script="शनिवासर" />
+        </day>
+    </days>
+
+    <months>
+        <month index="1">
+            <sanskrit romanized="Vaiśākha" script="वैशाख" />
+        </month>
+        <month index="2">
+            <sanskrit romanized="Jyēṣṭha" script="ज्येष्ठ" />
+        </month>
+        <month index="3">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="4">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="5">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="6">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="7">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="8">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="9">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="10">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="11">
+            <sanskrit romanized="-" script="-" />
+        </month>
+        <month index="12">
+            <sanskrit romanized="-" script="-" />
+        </month>
+
+    </months>
+</locales>
+
+
+
