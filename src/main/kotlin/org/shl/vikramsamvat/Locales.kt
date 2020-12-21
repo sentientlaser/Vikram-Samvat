@@ -10,20 +10,7 @@ abstract class LocaleConverter<T : NamedCalendarObject> : Converter<T> { // ther
 }
 
 abstract class DayConverter : LocaleConverter<Day>()
-
-object Sanskrit {
-    class DayConverter : org.shl.vikramsamvat.DayConverter() {
-        override val mapping: Map<Day, String> = mapOf(
-            Days.Ravivaasara to "रविवासर",
-            Days.Somavaasara to "-",
-            Days.Mangalaavasara to "-",
-            Days.Budhavaasara to "-",
-            Days.Guruvaasara to "-",
-            Days.Shukravaasara to "-",
-            Days.Shanivaasara to "-"
-            )
-    }
-}
+abstract class MonthConverter: LocaleConverter<Month>()
 
 //TODO: add a date formatter
 

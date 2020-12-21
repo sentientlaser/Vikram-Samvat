@@ -108,25 +108,33 @@ class VikramSamvatCalendar :Calendar(){
             .toInstant()
             .epochSecond
     }
+
+    fun getSizeOfField(field:Int):Long {
+        return when(field) {
+            MILLISECOND -> 1L
+            SECOND -> TimeUnit.SECONDS.toMillis(1L)
+            MINUTE -> TimeUnit.MINUTES.toMillis(1L)
+            HOUR, HOUR_OF_DAY -> TimeUnit.HOURS.toMillis(1L)
+            DAY_OF_YEAR, DAY_OF_MONTH, DAY_OF_WEEK, DAY_OF_WEEK_IN_MONTH -> TimeUnit.DAYS.toMillis(1L)
+            MONTH -> TimeUnit.DAYS.toMillis(countDaysforMonths(get(YEAR), get(MONTH), 1L))
+            YEAR -> TimeUnit.DAYS.toMillis(countDaysforMonths(get(YEAR), get(MONTH), 12L))
+            else -> throw VikramSamvatCalendarException("Unsupported Field: $field")
+        }
+    }
     override fun add(field: Int, amount: Int) {
         if (amount == 0) return
 
-        time += when(field) {
-            MILLISECOND -> amount as Long
-            SECOND -> TimeUnit.SECONDS.toMillis(amount as Long)
-            MINUTE -> TimeUnit.MINUTES.toMillis(amount as Long)
-            HOUR, HOUR_OF_DAY -> TimeUnit.HOURS.toMillis(amount as Long)
-            DAY_OF_YEAR, DAY_OF_MONTH, DAY_OF_WEEK, DAY_OF_WEEK_IN_MONTH -> TimeUnit.DAYS.toMillis(amount as Long)
-            MONTH -> TimeUnit.DAYS.toMillis(countDaysforMonths(get(YEAR), get(MONTH), amount as Long))
-            YEAR -> TimeUnit.DAYS.toMillis(countDaysforMonths(get(YEAR), get(MONTH), amount * 12 as Long))
-            else -> throw Exception()
-        }
+        time += getSizeOfField(field) * amount
 
         computeFields()
     }
 
     override fun roll(field: Int, up: Boolean) {
-        // TODO: here's where I parked.
+        if (get(field) >= getSizeOfField(field)) {
+            set(field, 0)
+        } else {
+            set(field, get(field) + if (up) 1 else -1)
+        }
     }
 
     override fun getMaximum(field: Int): Int {
